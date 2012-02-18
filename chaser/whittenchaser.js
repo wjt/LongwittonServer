@@ -2,15 +2,19 @@ var site = 'http://willthompson.co.uk:8080'
 var div =  $('<div id="WhittonUrl"/>');
 $('body').append(div);
 
+function query() {
+    return ('?' + (Math.random() * 1000000));
+}
+
 function sendUrl()
 {
 	// do send
-	$.get(site+'/chaser/update/'+document.URL);
+	$.get(site+'/chaser/update/'+document.URL + query());
 }
 
 function readUrl()
 {
-	$.get(site+'/chasee/current/',function(result){
+	$.get(site+'/chasee/current/' + query(),function(result){
     showUrl(result);
   });
 }
