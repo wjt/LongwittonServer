@@ -5,7 +5,7 @@ def get_game():
     # FIXME: more than one game?
     return Game.objects.all()[0]
 
-def make_response():
+def make_plain_response():
     r = HttpResponse(content_type='text/plain')
     r['Access-Control-Allow-Origin'] = '*'
     return r
@@ -13,7 +13,7 @@ def make_response():
 def chasee_current(request):
     g = get_game()
 
-    r = make_response()
+    r = make_plain_response()
 
     if g.status != 'noone':
         r.write(g.status)
@@ -24,7 +24,7 @@ def chasee_current(request):
 
 def chasee_target(request):
     g = get_game()
-    r = make_response()
+    r = make_plain_response()
 
     if g.status != 'noone':
         r.write(g.status)
