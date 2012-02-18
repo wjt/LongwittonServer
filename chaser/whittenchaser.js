@@ -1,24 +1,22 @@
-
-var div =  $('<div id="destination"/>');
-$('body').prepend(div);
+var site = 'http://willthompson.co.uk:8080'
+var div =  $('<div id="WhittonUrl"/>');
+$('body').append(div);
 
 function sendUrl()
 {
 	// do send
+	$.get(site+'/chaser/update/'+document.URL);
 }
 
 function readUrl()
 {
-	$.get('http://willthompson.co.uk:8080/current/',function(result){
+	$.get(site+'/current/',function(result){
     showUrl(result);
   });
 }
 
 function showUrl(data)
 {
-	alert("callback");
-	// do read
-	
 	// display text in diff
 	div.text(data);
 	// repeat after time	
@@ -27,4 +25,3 @@ function showUrl(data)
 
 sendUrl();
 readUrl();
-//showUrl("http://url.com/");

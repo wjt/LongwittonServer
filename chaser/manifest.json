@@ -7,6 +7,7 @@
 		{
 			"matches": ["http://*.wikipedia.org/wiki/*"],
 			"js": ["jquery.js", "whittenchaser.js"],
+			"css": ["whitton.css"],
 			"permissions": [
 				"http://*/",
 				"http://jonathanwhiting.com/*",
