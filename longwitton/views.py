@@ -5,7 +5,9 @@ from django.http import HttpResponse
 def current(request):
     try:
         last_page = Page.objects.all().order_by('-timestamp')[0]
-        return HttpResponse(last_page.url, content_type='text/plain')
+        r = HttpResponse(last_page.url, content_type='text/plain')
+        r['Access-Control-Allow-Origin'] = '*'
+        return r
     except Exception, e:
         return HttpResponse(e)
 
