@@ -1,0 +1,23 @@
+<html>
+ <head>
+  <title>Game Status</title>
+  <style>
+  dt {
+      font-weight: bold;
+  }
+  </style>
+ </head>
+ <body>
+  <h1>Game Status: {{ game_status }}</h1>
+  <dl>
+   <dt>Target URL:</dt>
+   <dd><a href='{{ game.goal }}'>{{ game.goal }}</a></dd>
+
+   <dt>Chasee is at:</dt>
+   <dd><a href='{{ game.chasee_current_page }}'>{{ game.chasee_current_page }}</a></dd>
+
+   <dt>Chaser is at:</dt>
+   <dd><a href='{{ game.chaser_current_page }}'>{{ game.chaser_current_page }}</a></dd>
+  </dl>
+ </body>
+</html>

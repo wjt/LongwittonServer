@@ -9,6 +9,11 @@ urlpatterns = patterns('',
     # url(r'^$', 'LongwittonServer.views.home', name='home'),
     # url(r'^LongwittonServer/', include('LongwittonServer.foo.urls')),
 
+    # Users:
+
+    url(r'^status/$', 'longwitton.views.status'),
+
+    # API
     # Backwards-compatibility alias
     url(r'^current/$', 'longwitton.views.chasee_current'),
 

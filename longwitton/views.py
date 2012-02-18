@@ -1,9 +1,23 @@
 from longwitton.models import Game
+from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
 def get_game():
     # FIXME: more than one game?
     return Game.objects.all()[0]
+
+def status(request):
+    g = get_game()
+
+    if g.status == 'noone':
+        game_status = 'In progress!'
+    else:
+        game_status = '%s won!' % g.status
+
+    return render_to_response('longwitton/status.html',
+        { 'game': g,
+          'game_status': game_status,
+        })
 
 def make_plain_response():
     r = HttpResponse(content_type='text/plain')
