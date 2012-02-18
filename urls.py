@@ -8,6 +8,10 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'LongwittonServer.views.home', name='home'),
     # url(r'^LongwittonServer/', include('LongwittonServer.foo.urls')),
+
+    # Backwards-compatibility alias
+    url(r'^current/$', 'longwitton.views.chasee_current'),
+
     url(r'^chasee/current/$', 'longwitton.views.chasee_current'),
     url(r'^chasee/target/$', 'longwitton.views.chasee_target'),
     url(r'^chasee/update/(?P<new_url>.+)$', 'longwitton.views.chasee_update'),
