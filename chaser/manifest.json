@@ -1,0 +1,17 @@
+{
+	"name": "Whitten Chaser",
+	"version": "1.0.1",
+	"description": "Whitten Chaser",
+	"content_scripts":
+	[
+		{
+			"matches": ["http://*.wikipedia.org/wiki/*"],
+			"js": ["jquery.js", "whittenchaser.js"],
+			"permissions": [
+				"http://*/",
+				"http://jonathanwhiting.com/*",
+				"http://willthompson.co.uk:8080/*"
+			]
+		}
+	]
+}
