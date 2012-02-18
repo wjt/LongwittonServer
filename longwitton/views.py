@@ -1,6 +1,10 @@
 from longwitton.models import Game
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
+from django.core import serializers
+import urllib
+import re
+
 
 def get_game():
     # FIXME: more than one game?
@@ -18,6 +22,24 @@ def status(request):
         { 'game': g,
           'game_status': game_status,
         })
+
+def reset(request):
+    r = urllib.urlopen('http://www.wikirandom.org/json?pages=3')
+    json = r.read()
+    urls = re.findall(r'http://en.wikipedia.org/wiki[^"]+', json)
+
+    g = get_game()
+    g.goal = urls[0]
+    g.chasee_start_page = urls[1]
+    g.chasee_current_page = urls[1]
+
+    g.chaser_start_page = urls[2]
+    g.chaser_current_page = urls[2]
+
+    g.status = 'noone'
+    g.save()
+
+    return HttpResponse("hi")
 
 def make_plain_response():
     r = HttpResponse(content_type='text/plain')

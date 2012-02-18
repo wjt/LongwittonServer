@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # Users:
 
     url(r'^status/$', 'longwitton.views.status'),
+    url(r'^reset/$', 'longwitton.views.reset'),
 
     # API
     # Backwards-compatibility alias
