@@ -78,7 +78,9 @@ def chasee_update(request, new_url):
         g.status = 'chasee'
 
     g.save()
-    return HttpResponse('Fine.')
+    r = make_plain_response()
+    r.write('fine')
+    return r
 
 # Modifies state with a GET! Bad me.
 def chaser_update(request, new_url):
@@ -89,4 +91,6 @@ def chaser_update(request, new_url):
         g.status = 'chaser'
 
     g.save()
-    return HttpResponse('Fine.')
+    r = make_plain_response()
+    r.write('fine')
+    return r
