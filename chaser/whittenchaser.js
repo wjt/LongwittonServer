@@ -10,7 +10,7 @@ function sendUrl()
 
 function readUrl()
 {
-	$.get(site+'/current/',function(result){
+	$.get(site+'/chasee/current/',function(result){
     showUrl(result);
   });
 }
