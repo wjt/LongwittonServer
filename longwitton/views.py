@@ -24,9 +24,15 @@ def status(request):
         })
 
 def reset(request):
-    r = urllib.urlopen('http://www.wikirandom.org/json?pages=3')
+    r = urllib.urlopen(
+        'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&rnlimit=3&rnnamespace=0')
     json = r.read()
-    urls = re.findall(r'http://en.wikipedia.org/wiki[^"]+', json)
+    print json
+    titles = re.findall(r'"title":"[^"]+', json)
+
+    print titles
+    urls = map(lambda t: 'http://en.wikipedia.org/wiki/' + t[9:].replace(' ', '_'), titles)
+    print urls
 
     g = get_game()
     g.goal = urls[0]
