@@ -6,7 +6,7 @@ def current(request):
     try:
         last_page = Page.objects.all().order_by('-timestamp')[0]
         return HttpResponse(last_page.url)
-    except e:
+    except Exception, e:
         return HttpResponse(e)
 
 # Modifies state with a GET! Bad me.
