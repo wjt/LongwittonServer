@@ -10,10 +10,8 @@ User-facing:
 
 API:
 
-/winner -> 'chaser', 'chasee', 'noone'
-
-/chasee/current returns current page
-/chasee/target returns target page
+/chasee/current returns current page or "chaser"/"chasee" if the game is over
+/chasee/target returns target page   or "chaser"/"chasee" if the game is over
 /chasee/update/http://... sets current page
 
 /chaser/update/http://... sets current page
