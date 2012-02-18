@@ -1,0 +1,17 @@
+{
+	"name": "Whitten Chasee",
+	"version": "1.0.1",
+	"description": "Whitten Chasee",
+	"content_scripts":
+	[
+		{
+			"matches": ["http://*.wikipedia.org/wiki/*"],
+			"js": ["jquery.js", "chasee.js"],
+			"css": ["whitton.css"],
+			"permissions": [
+				"http://jonathanwhiting.com/*",
+				"http://willthompson.co.uk:8080/*"
+			]
+		}
+	]
+}
