@@ -1,0 +1,19 @@
+User-facing:
+
+/ (HTML)
+  * New Game button
+
+/status (HTML)
+  * start page for chaser
+  * start page for chasee
+  * target page
+
+API:
+
+/winner -> 'chaser', 'chasee', 'noone'
+
+/chasee/current returns current page
+/chasee/target returns target page
+/chasee/update/http://... sets current page
+
+/chaser/update/http://... sets current page
