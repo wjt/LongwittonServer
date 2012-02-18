@@ -9,7 +9,7 @@ function sendUrl()
 
 function readUrl()
 {
-	$.get('http://jonathanwhiting.com/test.txt',function(result){
+	$.get('http://willthompson.co.uk:8080/current/',function(result){
     showUrl(result);
   });
 }
