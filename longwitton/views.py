@@ -13,6 +13,15 @@ def get_game():
 def status(request):
     g = get_game()
 
+    title = g.goal[len("http://en.wikipedia.org/wiki/"):]
+    r = urllib.urlopen(
+        'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=' + title)
+    json = r.read()
+    content = re.search(r'"revisions":\[\{"\*":"(.{1,2000})', json)
+
+    print content.group(1)
+    titles = re.findall(r'"title":"[^"]+', json)
+
     if g.status == 'noone':
         game_status = 'In progress!'
     else:
@@ -21,6 +30,7 @@ def status(request):
     return render_to_response('longwitton/status.html',
         { 'game': g,
           'game_status': game_status,
+          'summary': content.group(0),
         })
 
 def reset(request):
