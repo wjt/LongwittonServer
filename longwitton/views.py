@@ -90,8 +90,12 @@ def chasee_update(request, new_url):
     g = get_game()
     g.chasee_current_page = new_url
 
+    # If the chaser is waiting at the goal, let the chasee win anyway. That's
+    # just not cricket.
     if g.goal == new_url:
         g.status = 'chasee'
+    elif new_url == g.chaser_current_page:
+        g.status = 'chaser'
 
     g.save()
     r = make_plain_response()
