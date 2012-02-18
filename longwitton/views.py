@@ -5,7 +5,7 @@ from django.http import HttpResponse
 def current(request):
     try:
         last_page = Page.objects.all().order_by('-timestamp')[0]
-        return HttpResponse(last_page.url)
+        return HttpResponse(last_page.url, content_type='text/plain')
     except Exception, e:
         return HttpResponse(e)
 
