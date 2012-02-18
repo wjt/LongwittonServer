@@ -55,7 +55,7 @@ def reset(request):
     g.status = 'noone'
     g.save()
 
-    return HttpResponse("hi")
+    return HttpResponseRedirect("/status/")
 
 def make_plain_response():
     r = HttpResponse(content_type='text/plain')
