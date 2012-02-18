@@ -20,7 +20,7 @@ function showUrl(data)
 	// display text in diff
 	div.text(data);
 	// repeat after time	
-	var t=setTimeout("readUrl()",3000);
+	var t=setTimeout("readUrl()",1000);
 }
 
 sendUrl();
